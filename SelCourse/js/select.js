@@ -1,4 +1,10 @@
 ﻿$(document).ready(function () {
+
+    $('#selectCourseName').change(function () {
+        var type = $(this).val();
+        window.location.replace("http://localhost:13433/Course/SelectCourse?courseName=" + type);
+    })
+
     $('#save').click(function () {
         var checks = $('input[type=checkbox]')
         console.log(checks);

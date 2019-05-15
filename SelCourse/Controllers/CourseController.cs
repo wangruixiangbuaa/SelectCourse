@@ -109,7 +109,11 @@ namespace SelCourse.Controllers
 
         public ActionResult SelectCourse()
         {
+            string courseName = Request.QueryString["courseName"];
             SelectionEntities select = new SelectionEntities();
+            List<GeneralSelectItem> courseTypes = new List<GeneralSelectItem>();
+            courseTypes.Add(new GeneralSelectItem() { Text = "请选择", Value = "" });
+            courseTypes.AddRange(select.Course.Select(r => new GeneralSelectItem() { Text = r.CourseName, Value = r.CourseName }).Distinct());
             List<SelCourse> sels = select.SelCourse.ToList();
             List<Course> courses = select.Course.ToList();
             foreach (Course course in courses)
@@ -117,7 +121,15 @@ namespace SelCourse.Controllers
                 int selNum = sels.Where(r => r.CourseId == course.CourseId).Count();
                 course.CourseSel = course.CourseTotal - selNum;
             }
-            ViewBag.Courses = select.Course.ToList();
+            if (!string.IsNullOrEmpty(courseName))
+            {
+                ViewBag.Courses = select.Course.Where(r=>r.CourseName == courseName).ToList();
+            }
+            else
+            {
+                ViewBag.Courses = select.Course.ToList();
+            }
+            ViewBag.CourseNames = courseTypes;
             HttpCookie cokie = Request.Cookies.Get("Login");
             if (cokie != null)
             {

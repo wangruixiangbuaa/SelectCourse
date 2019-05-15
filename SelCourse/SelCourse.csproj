@@ -180,8 +180,7 @@
     <Content Include="Web.config" />
     <Content Include="Views\Login.cshtml" />
     <Content Include="Views\Student.cshtml" />
-    <Content Include="Views\Course.cshtml" />
-    <Content Include="Views\TestModel\Index.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
     <Content Include="Views\Select.cshtml" />
   </ItemGroup>
   <ItemGroup>

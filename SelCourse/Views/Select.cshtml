@@ -9,12 +9,11 @@
         <h1>学生选课:@ViewBag.StudentName</h1>
     </div>
     <div align="center">
-        <select name="DropDownList1" id="DropDownList1" style="width:210px;">
-            <option value="请选择" selected="selected">请选择</option>
+        <select name="DropDownList1" id="selectCourseName" style="width:210px;">
             @{
-                foreach (Course type in ViewBag.Courses)
+                foreach (GeneralSelectItem type in ViewBag.CourseNames)
                 {
-                    <option value="@type.CourseId">@type.CourseName</option>
+                    <option value="@type.Value">@type.Text</option>
                 }
             }
         </select>
