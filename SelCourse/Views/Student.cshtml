@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form id="form1" style="width: 100%;">
+    <div align="center" cname="@ViewBag.Course" id="course" cid="@ViewBag.CourseId">
+        <h1>查看选课为<em style="color:#F00">@ViewBag.Course</em>的学生:</h1>
+    </div>
+    <div align="center">
+        姓名：<input id="stuname" type="text" />&nbsp;&nbsp;
+        <button type="button" id="search" class="btn btn-info">查询</button>&nbsp;&nbsp;&nbsp;&nbsp; <button type="button" id="back" class="btn btn-info">返回选课管理</button>
+    </div>
+    <div>
+
+        <table class="table">
+
+            <tr class="sysBgColor">
+                <th>学生姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>手机号码</th>
+                <th>QQ号</th>
+                <th>专业</th>
+            </tr>
+            @{
+                foreach (StudentInfo stu in ViewBag.Students)
+                {
+                    <tr>
+                        <td>@stu.StuName</td>
+                        <td>@stu.StuSex</td>
+                        <td>@stu.StuAge</td>
+                        <td>@stu.StuIphone</td>
+                        <td>@stu.StuQq</td>
+                        <td>@stu.Profession</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    @*<div align="center">
+        <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+    </div>*@
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#search').click(function () {
+            $.ajax({
+                type: "Get", //提交方式 
+                url: "/Student/Search?stuName=" + $('#stuname').val() + "&course=" + $('#course').val(),//路径 
+                success: function (result) {//返回数据根据结果进行相应的处理 
+                    console.log(result);
+                    window.location.replace("http://localhost:13433/Student?courseid=" + $('#course').attr('cid')) + "&stuName=" + $('#stuname').val();
+                }
+            });
+        });
+        $('#back').click(function () {
+            window.location.replace("http://localhost:13433/Course");
+        })
+    });
+</script>
+

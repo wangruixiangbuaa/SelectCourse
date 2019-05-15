@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SelectionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="int" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CourseType" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsEnd" Type="bit" />
+    <Property Name="CourseTotal" Type="int" />
+    <Property Name="CourseSel" Type="int" />
+    <Property Name="CourseRemark" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SelCourse">
+    <Key>
+      <PropertyRef Name="SelId" />
+    </Key>
+    <Property Name="SelId" Type="int" Nullable="false" />
+    <Property Name="StuId" Type="int" />
+    <Property Name="CourseId" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StudentInfo">
+    <Key>
+      <PropertyRef Name="StuId" />
+    </Key>
+    <Property Name="StuId" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuSex" Type="nvarchar" MaxLength="5" />
+    <Property Name="StuAge" Type="int" />
+    <Property Name="Profession" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsAdmin" Type="int" />
+    <Property Name="StuIphone" Type="nvarchar" MaxLength="50" />
+    <Property Name="StuQq" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="SelectionModelStoreContainer">
+    <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SelCourse" EntityType="Self.SelCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentInfo" EntityType="Self.StudentInfo" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

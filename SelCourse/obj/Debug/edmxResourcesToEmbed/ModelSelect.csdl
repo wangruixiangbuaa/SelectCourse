@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SelectionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="Int32" Nullable="false" />
+    <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CourseType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsEnd" Type="Boolean" />
+    <Property Name="CourseTotal" Type="Int32" />
+    <Property Name="CourseSel" Type="Int32" />
+    <Property Name="CourseRemark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SelCourse">
+    <Key>
+      <PropertyRef Name="StuId" />
+    </Key>
+    <Property Name="StuId" Type="Int32" Nullable="false" />
+    <Property Name="CourseId" Type="Int32" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StudentInfo">
+    <Key>
+      <PropertyRef Name="StuId" />
+    </Key>
+    <Property Name="StuId" Type="Int32" Nullable="false" />
+    <Property Name="StuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StuSex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="StuAge" Type="Int32" />
+    <Property Name="Profession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Int32" />
+    <Property Name="StuIphone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StuQq" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="SelectionEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Course" EntityType="Self.Course" />
+    <EntitySet Name="SelCourse" EntityType="Self.SelCourse" />
+    <EntitySet Name="StudentInfo" EntityType="Self.StudentInfo" />
+  </EntityContainer>
+</Schema>

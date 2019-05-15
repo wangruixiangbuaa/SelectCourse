@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Course";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Modal</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script type="text/javascript">
+    $(document).ready(function () {
+        //$('#add').click(function () {
+        //    $('#myModal').modal('show');
+        //});
+        $('.show').click(function () {
+            window.location.replace("http://localhost:13433/Student?courseid=" + $(this).attr("cid"));
+        })
+    });
+    </script>
+</head>
+<body> 
+    <div align="center">
+        <h1>选课管理:</h1>
+    </div>
+    <div align="center">
+        <select name="DropDownList1" id="DropDownList1">
+            <option value="请选择" selected="selected">请选择</option>
+            @{
+                foreach (string type in ViewBag.CourseTypes)
+                {
+                    <option value="@type">@type</option>
+                }
+            }
+
+        </select>
+        <button class="btn btn-primary " id="add" data-toggle="modal" data-target="#myModal">
+            新增
+        </button>&nbsp;&nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-info">退出</button>
+    </div>
+    <br />
+    <div>
+        <table class="table">
+            <tr class="sysBgColor">
+                <th>课程名称</th>
+                <th>课程类型</th>
+                <th>课程描述</th>
+                <th>课程人数</th>
+                <th>可选人数</th>
+                <th>操作</th>
+            </tr>
+            @{
+                foreach (Course stu in ViewBag.Courses)
+                {
+                    <tr>
+                        <td style="display:none">@stu.CourseId</td>
+                        <td>@stu.CourseName</td>
+                        <td>@stu.CourseType</td>
+                        <td>@stu.CourseRemark</td>
+                        <td>@stu.CourseTotal</td>
+                        <td>@stu.CourseSel</td>
+                        <td>
+                            <img src="img/backgrounds/delete.png" />&nbsp;
+                            <img src="img/backgrounds/update.png" />&nbsp;
+                            <img style="display:inline-block;" class="show" cid="@stu.CourseId" src="img/backgrounds/man.png" />&nbsp;
+                            <img src="img/backgrounds/ok.png" />&nbsp;
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+        <br />
+        @*<div align="center">
+                <ul class="pagination">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>*@
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
+

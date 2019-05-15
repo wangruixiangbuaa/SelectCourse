@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <title>@ViewBag.Title - SelectCourse</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+    @*<script src="~/Scripts/modernizr-2.6.2.js"></script>*@
+
+    <script src="~/scripts/jquerycdn.js"></script>
+    <script src="~/scripts/bootstrapcdn.js"></script>
+    <script src="~/js/Login.js"></script>
+        <style type="text/css">
+        .auto-style1 {
+            height: 22px;
+        }
+
+        .sysBgColor {
+            background-color: #CCC;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My SelectCourse</p>
+        </footer>
+    </div>
+
+</body>
+</html>

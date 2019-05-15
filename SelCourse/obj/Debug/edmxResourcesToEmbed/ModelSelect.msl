@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SelectionModelStoreContainer" CdmEntityContainer="SelectionEntities">
+    <EntitySetMapping Name="Course">
+      <EntityTypeMapping TypeName="SelectionModel.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseType" ColumnName="CourseType" />
+          <ScalarProperty Name="IsEnd" ColumnName="IsEnd" />
+          <ScalarProperty Name="CourseTotal" ColumnName="CourseTotal" />
+          <ScalarProperty Name="CourseSel" ColumnName="CourseSel" />
+          <ScalarProperty Name="CourseRemark" ColumnName="CourseRemark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SelCourse">
+      <EntityTypeMapping TypeName="SelectionModel.SelCourse">
+        <MappingFragment StoreEntitySet="SelCourse">
+          <ScalarProperty Name="StuId" ColumnName="StuId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentInfo">
+      <EntityTypeMapping TypeName="SelectionModel.StudentInfo">
+        <MappingFragment StoreEntitySet="StudentInfo">
+          <ScalarProperty Name="StuId" ColumnName="StuId" />
+          <ScalarProperty Name="StuName" ColumnName="StuName" />
+          <ScalarProperty Name="StuSex" ColumnName="StuSex" />
+          <ScalarProperty Name="StuAge" ColumnName="StuAge" />
+          <ScalarProperty Name="Profession" ColumnName="Profession" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="StuIphone" ColumnName="StuIphone" />
+          <ScalarProperty Name="StuQq" ColumnName="StuQq" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

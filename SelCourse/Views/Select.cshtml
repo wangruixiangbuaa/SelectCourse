@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Select";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form id="form1"  onsubmit="return false">
+    <div align="center">
+        <h1>学生选课:@ViewBag.StudentName</h1>
+    </div>
+    <div align="center">
+        <select name="DropDownList1" id="DropDownList1" style="width:210px;">
+            <option value="请选择" selected="selected">请选择</option>
+            @{
+                foreach (Course type in ViewBag.Courses)
+                {
+                    <option value="@type.CourseId">@type.CourseName</option>
+                }
+            }
+        </select>
+        <button type="button" class="btn btn-info" id="save">保存</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div>
+            <br />
+            <table class="table" id="mytable">
+                <tr>
+                    <td>课程名称</td>
+                    <td>课程类型</td>
+                    <td>课程描述</td>
+                    <td>课程人数</td>
+                    <td>可选人数</td>
+                    <td>选择课程</td>
+                </tr>
+                @{
+                    foreach (Course stu in ViewBag.Courses)
+                    {
+                        <tr>
+                            <td style="display:none">@stu.CourseId</td>
+                            <td>@stu.CourseName</td>
+                            <td>@stu.CourseType</td>
+                            <td>@stu.CourseRemark</td>
+                            <td>@stu.CourseTotal</td>
+                            <td>@stu.CourseSel</td>
+                            <td>
+                                <input id="Checkbox3" type="checkbox" class="check" cid="@stu.CourseId" />
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+
+</form>
+
+<script src="~/js/select.js"></script>

@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/reset.css" rel="stylesheet" />
+<link href="~/Content/style.css" rel="stylesheet" />
+<link href="~/Content/supersized.css" rel="stylesheet" />
+
+<div class="page-container">
+    <h1>选课系统</h1>
+    <form action="" onsubmit="return false">
+        <input type="text" name="username" class="username" placeholder="Username" />
+        <input type="password" name="password" class="password" placeholder="Password" />
+        <button type="submit" id="login">Sign me in</button>
+        @*<button id="loginPost">Sign post</button>*@
+        <div class="error"><span>+</span></div>
+    </form>
+</div>
