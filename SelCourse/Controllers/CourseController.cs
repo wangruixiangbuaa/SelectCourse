@@ -13,10 +13,7 @@ namespace SelCourse.Controllers
         {
             SelectionEntities select = new SelectionEntities();
             string courseType = Request.QueryString["type"];
-            List<GeneralSelectItem> courseTypes = new List<GeneralSelectItem>();
-            courseTypes.Add(new GeneralSelectItem() { Text = "请选择", Value = "" });
-            courseTypes.AddRange(select.Course.Select(r => new GeneralSelectItem() { Text = r.CourseType, Value = r.CourseType }).Distinct());
-            ViewBag.CourseTypes = courseTypes;
+            ViewBag.CourseTypes = GetCourseType();
             List<SelCourse> sels = select.SelCourse.ToList();
             List<Course> courses = select.Course.ToList();
             foreach (Course course in courses)
@@ -34,6 +31,15 @@ namespace SelCourse.Controllers
             }
             
             return View("/Views/Course/Index.cshtml");
+        }
+
+        public List<GeneralSelectItem> GetCourseType()
+        {
+            SelectionEntities select = new SelectionEntities();
+            List<GeneralSelectItem> courseTypes = new List<GeneralSelectItem>();
+            courseTypes.Add(new GeneralSelectItem() { Text = "请选择", Value = "" });
+            courseTypes.AddRange(select.Course.Select(r => new GeneralSelectItem() { Text = r.CourseType, Value = r.CourseType }).Distinct());
+            return courseTypes;
         }
 
         public ActionResult AddCourse()
@@ -57,7 +63,7 @@ namespace SelCourse.Controllers
             select.Course.Add(course);
             select.SaveChanges();
             ViewBag.Courses = select.Course.ToList();
-            ViewBag.CourseTypes = select.Course.Select(r => r.CourseType).Distinct();
+            ViewBag.CourseTypes = GetCourseType();
             return View("/Views/Course/Index.cshtml");
         }
 
@@ -75,7 +81,7 @@ namespace SelCourse.Controllers
             select.Course.Remove(course);
             select.SaveChanges();
             ViewBag.Courses = select.Course.ToList();
-            ViewBag.CourseTypes = select.Course.Select(r => r.CourseType).Distinct();
+            ViewBag.CourseTypes = GetCourseType();
             return View("/Views/Course/Index.cshtml");
         }
 
@@ -103,17 +109,24 @@ namespace SelCourse.Controllers
             //select.Course.Add(course);
             select.SaveChanges();
             ViewBag.Courses = select.Course.ToList();
-            ViewBag.CourseTypes = select.Course.Select(r => r.CourseType).Distinct();
+            ViewBag.CourseTypes = GetCourseType();
             return View("/Views/Course/Index.cshtml");
+        }
+
+        public List<GeneralSelectItem> GetAllCourseNames()
+        {
+            SelectionEntities select = new SelectionEntities();
+            List<GeneralSelectItem> courseTypes = new List<GeneralSelectItem>();
+            courseTypes.Add(new GeneralSelectItem() { Text = "请选择", Value = "" });
+            courseTypes.AddRange(select.Course.Select(r => new GeneralSelectItem() { Text = r.CourseName, Value = r.CourseName }).Distinct());
+            return courseTypes;
         }
 
         public ActionResult SelectCourse()
         {
             string courseName = Request.QueryString["courseName"];
             SelectionEntities select = new SelectionEntities();
-            List<GeneralSelectItem> courseTypes = new List<GeneralSelectItem>();
-            courseTypes.Add(new GeneralSelectItem() { Text = "请选择", Value = "" });
-            courseTypes.AddRange(select.Course.Select(r => new GeneralSelectItem() { Text = r.CourseName, Value = r.CourseName }).Distinct());
+            ViewBag.CourseNames = GetAllCourseNames();
             List<SelCourse> sels = select.SelCourse.ToList();
             List<Course> courses = select.Course.ToList();
             foreach (Course course in courses)
@@ -129,7 +142,7 @@ namespace SelCourse.Controllers
             {
                 ViewBag.Courses = select.Course.ToList();
             }
-            ViewBag.CourseNames = courseTypes;
+           
             HttpCookie cokie = Request.Cookies.Get("Login");
             if (cokie != null)
             {
@@ -148,6 +161,7 @@ namespace SelCourse.Controllers
             SelectionEntities select = new SelectionEntities();
             string cids = Request.QueryString["cids"];
             ViewBag.Courses = select.Course.ToList();
+            ViewBag.CourseNames = GetAllCourseNames();
             HttpCookie cokie = Request.Cookies.Get("Login");
             int stuId = 0;
             if (cokie != null)

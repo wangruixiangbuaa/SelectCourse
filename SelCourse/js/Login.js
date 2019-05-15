@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     $("#login").click(function () {
         var name = $('input[name=username]').val();
-        var password = $('input[name=password]');
+        var password = $('input[name=password]').val();
         $.ajax({
             type: "Get", //提交方式 
             dataType: "json",
@@ -9,6 +9,7 @@
             success: function (result) {//返回数据根据结果进行相应的处理 
                 console.log(result);
                 if (result.Status == "loginFail") {
+                    alert("登录失败,请检查用户名和密码。");
                     window.location.replace("http://localhost:13433/Login");
                 }
                 if (result.StuInfo.IsAdmin == "1") {
@@ -35,6 +36,7 @@
             success: function (result) {//返回数据根据结果进行相应的处理 
                 console.log(result);
                 if (result.Status == "loginFail") {
+                    alert("登录失败,请检查用户名和密码。");
                     window.location.replace("http://localhost:13433/Login");
                 }
                 if (result.StuInfo.IsAdmin == "1") {

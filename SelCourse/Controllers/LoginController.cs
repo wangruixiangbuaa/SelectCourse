@@ -38,7 +38,7 @@ namespace SelCourse.Controllers
             string name = Request.QueryString["username"];
             string pwd = Request.QueryString["password"];
             SelectionEntities selects = new SelectionEntities();
-            var match = selects.StudentInfo.Where(r=>r.StuName == name).FirstOrDefault();
+            var match = selects.StudentInfo.Where(r=>r.StuName == name && r.Password == pwd).FirstOrDefault();
             JsonResult jresult = new JsonResult();
             jresult.ContentType = "application/json";
             jresult.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
