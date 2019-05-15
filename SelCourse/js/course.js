@@ -17,7 +17,8 @@
         $.ajax({
             type: "Get", //提交方式 
             url: url,//路径 
-            success: function (result) {//返回数据根据结果进行相应的处理 
+            success: function (result) {
+                //返回数据根据结果进行相应的处理 
                 console.log(result);
                 window.location.replace("http://localhost:13433/Course");
             }
@@ -44,13 +45,6 @@
     $('#courseTypeSelect').change(function () {
         var type = $(this).val();
         window.location.replace("http://localhost:13433/Course?type="+type);
-        //$.ajax({
-        //    type: "Get", //提交方式 
-        //    url: "/Course/Index?type=" + type,//路径 
-        //    success: function (result) {//返回数据根据结果进行相应的处理 
-        //        console.log(result);
-        //    }
-        //});
     })
     $('#goout').click(function () {
         window.location.replace("http://localhost:13433/Login");

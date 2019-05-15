@@ -33,7 +33,7 @@ namespace SelCourse.Controllers
                 ViewBag.Courses = courses.Where(r => r.CourseType == courseType).ToList();
             }
             
-            return View("/Views/TestModel/Index.cshtml");
+            return View("/Views/Course/Index.cshtml");
         }
 
         public ActionResult AddCourse()
@@ -58,7 +58,7 @@ namespace SelCourse.Controllers
             select.SaveChanges();
             ViewBag.Courses = select.Course.ToList();
             ViewBag.CourseTypes = select.Course.Select(r => r.CourseType).Distinct();
-            return View("/Views/TestModel/Index.cshtml");
+            return View("/Views/Course/Index.cshtml");
         }
 
         public ActionResult DeleteCourse()
@@ -70,13 +70,13 @@ namespace SelCourse.Controllers
             Course course = select.Course.Where(r => r.CourseId == did).FirstOrDefault();
             if (course == null)
             {
-                return View("/Views/TestModel/Index.cshtml");
+                return View("/Views/Course/Index.cshtml");
             }
             select.Course.Remove(course);
             select.SaveChanges();
             ViewBag.Courses = select.Course.ToList();
             ViewBag.CourseTypes = select.Course.Select(r => r.CourseType).Distinct();
-            return View("/Views/TestModel/Index.cshtml");
+            return View("/Views/Course/Index.cshtml");
         }
 
         public ActionResult UpdateCourse()
@@ -97,14 +97,14 @@ namespace SelCourse.Controllers
             course.CourseTotal = Convert.ToInt32(num);
             if (course == null)
             {
-                return View("/Views/TestModel/Index.cshtml");
+                return View("/Views/Course/Index.cshtml");
             }
 
             //select.Course.Add(course);
             select.SaveChanges();
             ViewBag.Courses = select.Course.ToList();
             ViewBag.CourseTypes = select.Course.Select(r => r.CourseType).Distinct();
-            return View("/Views/TestModel/Index.cshtml");
+            return View("/Views/Course/Index.cshtml");
         }
 
         public ActionResult SelectCourse()
