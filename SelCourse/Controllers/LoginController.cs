@@ -14,6 +14,7 @@ namespace SelCourse.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            Console.WriteLine("测试一下客户端提交");
             return View("/Views/Login.cshtml");
         }
 
