@@ -14,6 +14,7 @@ namespace SelCourse.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            Console.WriteLine("test git.");
             return View("/Views/Login.cshtml");
         }
 
