@@ -11,6 +11,7 @@ namespace SelCourse.Controllers
         // GET: Course
         public ActionResult Index()
         {
+            Console.WriteLine("打开了课程管理界面。");
             SelectionEntities select = new SelectionEntities();
             string courseType = Request.QueryString["type"];
             ViewBag.CourseTypes = GetCourseType();
