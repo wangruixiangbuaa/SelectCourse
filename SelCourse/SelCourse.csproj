@@ -150,6 +150,7 @@
     <Content Include="img\progress.gif" />
     <Content Include="img\twitter.png" />
     <Content Include="js\course.js" />
+    <Content Include="js\global.js" />
     <Content Include="js\select.js" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
