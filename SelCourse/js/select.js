@@ -21,8 +21,12 @@
         $.ajax({
             type: "Get", //提交方式
             url: url,//路径
-            success: function (result) {//返回数据根据结果进行相应的处理
+            success: function (result) { //返回数据根据结果进行相应的处理
                 console.log(result);
+                if (result != '' && result != null)
+                {
+                    alert(result);
+                }
                 window.location.replace(sc.selectCourseUrl);
             }
         });
