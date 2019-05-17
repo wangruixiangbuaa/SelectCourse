@@ -152,6 +152,7 @@
     <Content Include="js\course.js" />
     <Content Include="js\global.js" />
     <Content Include="js\select.js" />
+    <Content Include="js\student.js" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap-paginator.js" />
@@ -186,6 +187,7 @@
     <Content Include="Views\Select.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -193,6 +195,7 @@
     <Compile Include="Course.cs">
       <DependentUpon>Selection.tt</DependentUpon>
     </Compile>
+    <Compile Include="Filters\CustomAuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

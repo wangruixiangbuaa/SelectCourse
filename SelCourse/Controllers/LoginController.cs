@@ -11,6 +11,7 @@ namespace SelCourse.Controllers
 {
     public class LoginController : Controller
     {
+        [AllowAnonymous]
         // GET: Login
         public ActionResult Index()
         {
@@ -19,6 +20,7 @@ namespace SelCourse.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult DoPostLogin()
         {
             var sr = new StreamReader(Request.InputStream);
@@ -34,6 +36,7 @@ namespace SelCourse.Controllers
             return json;
         }
 
+        [AllowAnonymous]
         public ActionResult DoLogin()
         {
             string name = Request.QueryString["username"];
