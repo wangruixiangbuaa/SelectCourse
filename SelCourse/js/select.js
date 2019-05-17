@@ -2,7 +2,7 @@
 
     $('#selectCourseName').change(function () {
         var type = $(this).val();
-        window.location.replace("http://localhost:13433/Course/SelectCourse?courseName=" + type);
+        window.location.replace(sc.selectCourseUrl + "?courseName=" + type);
     })
 
     $('#save').click(function () {
@@ -23,7 +23,7 @@
             url: url,//路径
             success: function (result) {//返回数据根据结果进行相应的处理
                 console.log(result);
-                window.location.replace("http://localhost:13433/Course/SelectCourse");
+                window.location.replace(sc.selectCourseUrl);
             }
         });
 

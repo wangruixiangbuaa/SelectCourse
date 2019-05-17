@@ -61,10 +61,13 @@ namespace SelCourse.Controllers
             course.CourseType = type;
             course.CourseTotal = Convert.ToInt32(num);
             select.Course.Add(course);
-            select.SaveChanges();
+            int result = select.SaveChanges();
             ViewBag.Courses = select.Course.ToList();
             ViewBag.CourseTypes = GetCourseType();
-            return View("/Views/Course/Index.cshtml");
+            JsonResult jsonData = new JsonResult();
+            jsonData.Data = course;
+            jsonData.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return jsonData;
         }
 
         public ActionResult DeleteCourse()
@@ -82,7 +85,10 @@ namespace SelCourse.Controllers
             select.SaveChanges();
             ViewBag.Courses = select.Course.ToList();
             ViewBag.CourseTypes = GetCourseType();
-            return View("/Views/Course/Index.cshtml");
+            JsonResult jsonData = new JsonResult();
+            jsonData.Data = course;
+            jsonData.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return jsonData;
         }
 
         public ActionResult UpdateCourse()

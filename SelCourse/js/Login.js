@@ -10,13 +10,13 @@
                 console.log(result);
                 if (result.Status == "loginFail") {
                     alert("登录失败,请检查用户名和密码。");
-                    window.location.replace("http://localhost:13433/Login");
+                    window.location.replace(sc.loginUrl);
                 }
                 if (result.StuInfo.IsAdmin == "1") {
-                    window.location.replace("http://localhost:13433/Course");
+                    window.location.replace(sc.courseUrl);
                 }
                 if (result.StuInfo.IsAdmin == "0") {
-                    window.location.replace("http://localhost:13433/Course/SelectCourse");
+                    window.location.replace(sc.selectCourseUrl);
                 }
             }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                 console.log(textStatus);

@@ -20,13 +20,13 @@
             success: function (result) {
                 //返回数据根据结果进行相应的处理 
                 console.log(result);
-                window.location.replace("http://localhost:13433/Course");
+                window.location.replace(sc.courseUrl);
             }
         });
 
     });
     $('.showstudent').click(function () {
-        window.location.replace("http://localhost:13433/Student?courseid=" + $(this).attr("cid"));
+        window.location.replace(sc.studentUrl+"?courseid=" + $(this).attr("cid"));
     })
     $('#add').click(function () {
         $('#course-id').val('');
@@ -44,10 +44,10 @@
     })
     $('#courseTypeSelect').change(function () {
         var type = $(this).val();
-        window.location.replace("http://localhost:13433/Course?type="+type);
+        window.location.replace(sc.courseUrl+"?type="+type);
     })
     $('#goout').click(function () {
-        window.location.replace("http://localhost:13433/Login");
+        window.location.replace(sc.loginUrl);
     })
     $('.delete').click(function () {
         var id = $(this).attr("cid");
@@ -56,7 +56,7 @@
             url: "/Course/DeleteCourse?id=" + id,//路径 
             success: function (result) {//返回数据根据结果进行相应的处理 
                 console.log(result);
-                window.location.replace("http://localhost:13433/Course");
+                window.location.replace(sc.courseUrl);
             }
         });
     })
