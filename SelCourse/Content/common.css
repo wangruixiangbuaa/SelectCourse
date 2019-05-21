@@ -1,0 +1,90 @@
+﻿html, body, div, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, 
+ul, ol, li, pre, form, button, input, textarea, label, th, td, a, img{margin: 0; padding: 0;}
+a{color: #333; text-decoration: none;}
+a:hover{color: #ff2c72; text-decoration: none;}
+/*input, button, 
+textarea, select, option{font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit;}*/
+input, button, textarea, select{*font-size: 100%; outline: none;border: 0;}
+ul {
+   list-style:none;
+}
+body {
+    margin:0px;padding:0px;
+    background: #f5f5f5;font-size: 12px; font-family: "microsoft yahei"; color: #333;min-width: 1200px;
+}
+.head {
+    background-color:#222;
+}
+.head-top {
+    height:30px;width:100%;background-color:#1c1d1e;
+}
+.head-main {
+   height:90px;border-bottom:1px solid #444
+}
+.shop-logo {
+  display:block;float:left;padding:6px 60px 0;
+}
+.shop-search {
+   position:relative;float:left;margin:25px 0 0 230px;
+}
+.shop-search input{width: 431px; height: 38px; padding-left: 20px; background: url(../imgs/icon/search_icon.png) no-repeat -1px -44px;}
+.shop-search .search-btn{position: absolute; top: 0; right: 15px; display: block; width: 24px; height: 39px; 
+							background: url(../imgs/icon/search_icon.png) -461px 0 no-repeat;}
+.shop-search input:focus{background: url(../imgs/icon/search_icon.png) no-repeat -1px -1px;}
+.shop-search input:focus + .search-btn{background: url(../imgs/icon/search_icon.png) -461px -43px no-repeat;}
+.head-nav a{
+    color:#f5f5f5;
+}
+.head-nav a:hover {
+    color:#ff2c72;
+}
+.top-menu {
+ line-height:30px;
+ color:#999;
+ float:right;
+}
+.yin-logo {
+   height:30px;width:57px;float:left;
+}
+.split-line {
+    color:#444;
+}
+.yinyue-container {
+  width:1200px;margin:0 auto;
+}
+.clearfix:before, .clearfix:after{content: ""; display: table;}
+.clearfix:after{clear: both;}
+.clearfix{clear: both; *zoom: 1;}
+.sina, split-line, .wechat, .zhengpin {
+ float:left;
+}
+.sina, .wechat {
+   width:130px;text-align:center;cursor:pointer;
+}
+.popsina, .popwechat {
+  display:none;background:#fff;position:absolute;width:110px;padding:0 10px;z-index:9;border-bottom:1px solid #ddd
+}
+.wechat:hover, .sina:hover {
+   background:#fff;
+}
+.wechat:hover .popwechat, .sina:hover .popsina 
+{
+   display :block;
+}
+ 
+
+
+ .user-box{float: right;}
+.user-box a{color: #ddd; line-height: 90px; margin-left: 20px; display: inline-block;}
+.shop-loginBtn{background: url(../imgs/icon/avatar.png) no-repeat left center / 20px;padding-left: 30px;}
+.my-cart{background: url(../imgs/icon/cart-logo-v1.png) no-repeat left center / 20px;padding-left: 30px;}
+.user-box a:hover{color: #ff2c72;}
+
+
+.head-nav a{color: #f5f5f5;}
+.head-nav a:hover{color: #ff2c72;}
+.nave-type{float: left; width: 100px; background: #191a1b; text-align: center; font-size: 14px; line-height: 35px; cursor: pointer; margin: 0 50px;}
+.nav-box{float: left; overflow: hidden; padding-left: 35px;}
+.nav-box li{float: left; margin-right: 44px; padding: 0 15px; height: 32px; color: #f5f5f5; font-size: 14px; line-height: 35px;}
+.nav-box li.active,.nav-box li:hover{border-bottom: 3px solid #ff2c72;}
+.nav-box li.active a,.nav-box li:hover a{color: #ff2c72;}

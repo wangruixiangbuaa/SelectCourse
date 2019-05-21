@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelCourse", "SelCourse\SelCourse.csproj", "{5F71D0F2-F32B-48D1-8EB3-F60C685C0E2F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{C99C3DA2-5ECC-450C-B68A-FA9E789D63ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HP.Web.MVC.Library", "HP.Web.MVC.Library\HP.Web.MVC.Library.csproj", "{D96843A0-216A-451E-B41A-555C827F35F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{5F71D0F2-F32B-48D1-8EB3-F60C685C0E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F71D0F2-F32B-48D1-8EB3-F60C685C0E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F71D0F2-F32B-48D1-8EB3-F60C685C0E2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96843A0-216A-451E-B41A-555C827F35F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96843A0-216A-451E-B41A-555C827F35F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96843A0-216A-451E-B41A-555C827F35F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96843A0-216A-451E-B41A-555C827F35F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D96843A0-216A-451E-B41A-555C827F35F3} = {C99C3DA2-5ECC-450C-B68A-FA9E789D63ED}
 	EndGlobalSection
 EndGlobal
