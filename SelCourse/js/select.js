@@ -7,8 +7,7 @@
 
     $('#save').click(function () {
         var checks = $('input[type=checkbox]')
-        console.log(checks);
-
+        console.log($('input[type=chekbox]'))
         var id = '';
         for (var i = 0; i < checks.length; i++) {
             if (checks[i].checked)

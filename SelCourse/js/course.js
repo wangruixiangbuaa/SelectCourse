@@ -49,6 +49,11 @@
     $('#goout').click(function () {
         window.location.replace(sc.loginUrl);
     })
+    $('.page').click(function () {
+        //alert(this.attr("pid"));
+        var type = $('#course-type').val();
+        window.location.replace(sc.courseUrl + "?type=" + type + "&pageIndex=" + $(this).attr("pid") + "&pageSize=" + $(this).attr("psize"));
+    })
     $('.delete').click(function () {
         var id = $(this).attr("cid");
         $.ajax({

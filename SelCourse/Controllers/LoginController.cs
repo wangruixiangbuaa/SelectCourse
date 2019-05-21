@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -15,13 +16,12 @@ namespace SelCourse.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            Console.WriteLine("测试一下客户端提交");
             return View("/Views/Login.cshtml");
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult DoPostLogin()
+        public  ActionResult DoPostLogin()
         {
             var sr = new StreamReader(Request.InputStream);
             var stream = sr.ReadToEnd();
@@ -37,7 +37,7 @@ namespace SelCourse.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult DoLogin()
+        public  ActionResult DoLogin()
         {
             string name = Request.QueryString["username"];
             string pwd = Request.QueryString["password"];

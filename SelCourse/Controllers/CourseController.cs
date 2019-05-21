@@ -15,23 +15,36 @@ namespace SelCourse.Controllers
         {
             SelectionEntities select = new SelectionEntities();
             string courseType = Request.QueryString["type"];
+            string pageIndex = Request.QueryString["pageIndex"];
+            string pageSize = Request.QueryString["pageSize"];
+            WrapPageData<Course> pageCourses = new WrapPageData<Course>();
+            int index = 0;
+            int size = 3;
+            int.TryParse(pageIndex,out index);
+            int.TryParse(pageSize, out size);
+            size = size == 0 ? 3 : size;
+            index = index > 0 ? index - 1 : 0;
             ViewBag.CourseTypes = GetCourseType();
             List<SelCourse> sels = select.SelCourse.ToList();
-            List<Course> courses = select.Course.ToList();
-            foreach (Course course in courses)
+            if (string.IsNullOrEmpty(courseType))
+            {
+                pageCourses.Data = select.Course.OrderBy(r => r.CourseId).Skip(index * size).Take(size).ToList();
+                pageCourses.totalCount = select.Course.Count();
+            }
+            else
+            {
+                pageCourses.Data = select.Course.Where(r=>r.CourseType == courseType).OrderBy(r => r.CourseId).Skip(index * size).Take(size).ToList();
+                pageCourses.totalCount = select.Course.Where(r=>r.CourseType == courseType).Count();
+            }
+            foreach (Course course in pageCourses.Data)
             {
                 int selNum = sels.Where(r => r.CourseId == course.CourseId).Count();
                 course.CourseSel = course.CourseTotal - selNum;
             }
             ViewBag.CurrentType = courseType;
-            if (string.IsNullOrEmpty(courseType))
-            {
-                ViewBag.Courses = courses;
-            }else
-            {
-                ViewBag.Courses = courses.Where(r => r.CourseType == courseType).ToList();
-            }
-            
+            ViewBag.Courses = pageCourses.Data;
+            ViewBag.Pages = pageCourses.GetPages(index, size, pageCourses.totalCount);
+            ViewBag.PageSize = 3;
             return View("/Views/Course/Index.cshtml");
         }
 
@@ -40,7 +53,9 @@ namespace SelCourse.Controllers
             SelectionEntities select = new SelectionEntities();
             List<GeneralSelectItem> courseTypes = new List<GeneralSelectItem>();
             courseTypes.Add(new GeneralSelectItem() { Text = "请选择", Value = "" });
-            courseTypes.AddRange(select.Course.Select(r => new GeneralSelectItem() { Text = r.CourseType, Value = r.CourseType }).Distinct());
+            courseTypes.AddRange(select.Course.Select(r => new GeneralSelectItem()
+                                                          { Text = r.CourseType, Value = r.CourseType }
+                                                     ).Distinct());
             return courseTypes;
         }
 
@@ -72,22 +87,44 @@ namespace SelCourse.Controllers
             return jsonData;
         }
 
-        public ActionResult DeleteCourse()
+        public ActionResult DeleteCourse(int aid)
         {
             string id = Request.QueryString["id"];
             int did = 0;
             Int32.TryParse(id,out did);
             SelectionEntities select = new SelectionEntities();
             Course course = select.Course.Where(r => r.CourseId == did).FirstOrDefault();
+            JsonResult jsonData = new JsonResult();
             if (course == null)
             {
-                return View("/Views/Course/Index.cshtml");
+                jsonData.Data = "课程已经删除！";
+                return jsonData;
             }
             select.Course.Remove(course);
             select.SaveChanges();
             ViewBag.Courses = select.Course.ToList();
             ViewBag.CourseTypes = GetCourseType();
+            jsonData.Data = course;
+            jsonData.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return jsonData;
+        }
+
+        public ActionResult ADeleteCourse(string id)
+        {
+            int did = 0;
+            Int32.TryParse(id, out did);
+            SelectionEntities select = new SelectionEntities();
+            Course course = select.Course.Where(r => r.CourseId == did).FirstOrDefault();
             JsonResult jsonData = new JsonResult();
+            if (course == null)
+            {
+                jsonData.Data = "课程已经删除！";
+                return jsonData;
+            }
+            select.Course.Remove(course);
+            select.SaveChanges();
+            ViewBag.Courses = select.Course.ToList();
+            ViewBag.CourseTypes = GetCourseType();
             jsonData.Data = course;
             jsonData.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
             return jsonData;
@@ -113,7 +150,7 @@ namespace SelCourse.Controllers
             {
                 return View("/Views/Course/Index.cshtml");
             }
-
+            select.Entry<Course>(course).State = System.Data.EntityState.Modified;
             //select.Course.Add(course);
             select.SaveChanges();
             ViewBag.Courses = select.Course.ToList();
@@ -191,6 +228,7 @@ namespace SelCourse.Controllers
             {
                 if (!string.IsNullOrEmpty(item))
                 {
+                    maxid = maxid++;
                     int cid = Convert.ToInt32(item);
                     var match = select.SelCourse.Where(r => r.CourseId == cid && r.StuId == stuId).FirstOrDefault();
                     if (match == null)
@@ -205,7 +243,7 @@ namespace SelCourse.Controllers
                     else
                     {
                         var course = select.Course.Where(r => r.CourseId == cid).FirstOrDefault();
-                        errString += string.Format("{0}已经选过该课程",course.CourseName);
+                        errString += string.Format("已经选过{0},课程",course.CourseName);
                     }
                 }
             }

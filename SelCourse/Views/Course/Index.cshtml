@@ -64,7 +64,7 @@
                         <td>@stu.CourseTotal</td>
                         <td>@stu.CourseSel</td>
                         <td>
-                            <img src="img/backgrounds/delete.png"  class="delete" cid="@stu.CourseId"/>&nbsp;
+                            <img src="img/backgrounds/delete.png" class="delete" cid="@stu.CourseId" />&nbsp;
                             <img src="img/backgrounds/update.png" class="update" cname="@stu.CourseName" cdes="@stu.CourseRemark" ctotal="@stu.CourseTotal" ctype="@stu.CourseType" cid="@stu.CourseId" />&nbsp;
                             <img class="showstudent" cid="@stu.CourseId" src="img/backgrounds/man.png" />&nbsp;
                             <img src="img/backgrounds/ok.png" />&nbsp;
@@ -77,11 +77,12 @@
         <div align="center">
                 <ul class="pagination">
                     <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
+                    @{
+                        foreach (var page in ViewBag.Pages)
+                        {
+                            <li ><a href="#" class="page" psize="@ViewBag.PageSize" pid="@page">@page</a></li>
+                        }
+                    }
                     <li><a href="#">&raquo;</a></li>
                 </ul>
             </div>
