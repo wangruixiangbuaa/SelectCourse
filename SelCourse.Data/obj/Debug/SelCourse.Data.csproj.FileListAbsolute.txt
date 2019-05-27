@@ -1,0 +1,13 @@
+D:\SelCourse\SelCourse.Data\bin\Debug\SelCourse.Data.dll.config
+D:\SelCourse\SelCourse.Data\bin\Debug\SelCourse.Data.dll
+D:\SelCourse\SelCourse.Data\bin\Debug\SelCourse.Data.pdb
+D:\SelCourse\SelCourse.Data\bin\Debug\EntityFramework.dll
+D:\SelCourse\SelCourse.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\SelCourse\SelCourse.Data\bin\Debug\EntityFramework.xml
+D:\SelCourse\SelCourse.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.csprojResolveAssemblyReference.cache
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.dll
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.pdb
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.Migrations.InitialModify.resources
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.csproj.GenerateResource.Cache
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.Migrations.InitialModify1.resources

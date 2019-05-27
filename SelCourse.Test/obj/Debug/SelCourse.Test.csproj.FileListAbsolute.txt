@@ -1,0 +1,14 @@
+D:\SelCourse\SelCourse.Test\bin\Debug\SelCourse.Test.dll.config
+D:\SelCourse\SelCourse.Test\bin\Debug\SelCourse.Test.dll
+D:\SelCourse\SelCourse.Test\bin\Debug\SelCourse.Test.pdb
+D:\SelCourse\SelCourse.Test\bin\Debug\EntityFramework.dll
+D:\SelCourse\SelCourse.Test\bin\Debug\EntityFramework.SqlServer.dll
+D:\SelCourse\SelCourse.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\SelCourse\SelCourse.Test\bin\Debug\SelCourse.Data.dll
+D:\SelCourse\SelCourse.Test\bin\Debug\SelCourse.Data.pdb
+D:\SelCourse\SelCourse.Test\bin\Debug\EntityFramework.xml
+D:\SelCourse\SelCourse.Test\bin\Debug\EntityFramework.SqlServer.xml
+D:\SelCourse\SelCourse.Test\bin\Debug\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\SelCourse\SelCourse.Test\obj\Debug\SelCourse.Test.csprojResolveAssemblyReference.cache
+D:\SelCourse\SelCourse.Test\obj\Debug\SelCourse.Test.dll
+D:\SelCourse\SelCourse.Test\obj\Debug\SelCourse.Test.pdb
