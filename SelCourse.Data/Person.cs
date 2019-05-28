@@ -14,9 +14,8 @@ namespace SelCourse.Data
     ///  4.[Required, Column("ProductName")]
     ///  5.[Column("UnitPrice", TypeName = "MONEY")]
     ///  6.[ForeignKey("CatID")]
-    ///  
-    ///  7.https://www.cnblogs.com/libingql/p/3353112.html  多个表之间的关系，配置，（用户，角色） 配置
-    ///  
+    ///  7. https://www.cnblogs.com/libingql/p/3353112.html  
+    ///    多个表之间的关系，配置，（用户，角色） 配置
     /// codeFirst,modelFirst
     /// </summary>
     public class Person

@@ -16,18 +16,18 @@ namespace SelCourse.Data
         ///    3.1 启用指定DBContext迁移   Enable-Migrations -EnableAutomaticMigrations  Enable-Migrations -EnableAutomaticMigrations -Force
         ///    3.2 添加迁移配置   Add-Migration  name(XXX)  InitialCreate
         ///    3.3 更新数据库     Update-Database -Verbose
-        /// 
         /// ->可能遇到的问题：
         /// 启用迁移的项目可能与启动项目不同。
         /// 错误的实体框架版本。
         /// 错误的连接字符串或双连接字符串。
-        ///
         /// </summary>
         public EFCodeFirstDBContext() : base("name=MyStrConn")
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<EFCodeFirstDBContext>());
             //Database.SetInitializer<EFCodeFirstDBContext>(null);
         }
-        public DbSet<Person> TestClasses { get; set; }
+        public DbSet<Person> Persons { get; set; }
+
+        public DbSet<Student> Students { get; set; }
     }
 }

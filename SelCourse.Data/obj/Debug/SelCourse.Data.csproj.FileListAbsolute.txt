@@ -11,3 +11,8 @@ D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.pdb
 D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.Migrations.InitialModify.resources
 D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.csproj.GenerateResource.Cache
 D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.Migrations.InitialModify1.resources
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.Migrations.addStudent.resources
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.Migrations.addStudente.resources
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.Migrations.addStudente1.resources
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.Migrations.addStudente2.resources
+D:\SelCourse\SelCourse.Data\obj\Debug\SelCourse.Data.Migrations.addStudente3.resources

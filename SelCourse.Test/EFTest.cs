@@ -5,10 +5,10 @@ using SelCourse.Data;
 namespace SelCourse.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class EFTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void AddPersonMethod()
         {
             using (EFCodeFirstDBContext db = new EFCodeFirstDBContext())
             {
@@ -18,7 +18,23 @@ namespace SelCourse.Test
                 cl.BeTime = DateTime.Now;
                 cl.Money = 12.5M;
                 cl.Name = "ef2";
-                db.TestClasses.Add(cl);
+                db.Persons.Add(cl);
+                db.SaveChanges();
+            }
+        }
+
+
+        [TestMethod]
+        public void AddStudentMethod()
+        {
+            using (EFCodeFirstDBContext db = new EFCodeFirstDBContext())
+            {
+                Student cl = new Student();
+                cl.ClassId = 1;
+                cl.Hobby = "乒乓球";
+                cl.Number = "NO123";
+                cl.SchoolId = 2;
+                db.Students.Add(cl);
                 db.SaveChanges();
             }
         }
