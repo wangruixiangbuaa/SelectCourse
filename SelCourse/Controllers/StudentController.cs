@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SelCourse.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -45,6 +46,13 @@ namespace SelCourse.Controllers
             ViewBag.Students = select.StudentInfo.Where(r=>r.StuName == stuName).ToList();
             ViewBag.Course = courseName;
             return View("/Views/Student.cshtml");
+        }
+
+        [CustomResultFilter]
+        public ActionResult Test()
+        {
+            Response.Write("这里执行是Action方法，非ViewResult<br/>");
+            return View("/Views/Test/Index.cshtml");
         }
     }
 }

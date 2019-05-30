@@ -275,6 +275,7 @@
       <DependentUpon>Selection.tt</DependentUpon>
     </Compile>
     <Compile Include="Filters\CustomAuthenticationFilter.cs" />
+    <Compile Include="Filters\CustomResultFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -323,6 +324,7 @@
     <Content Include="Selection.edmx.diagram">
       <DependentUpon>Selection.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Test\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
