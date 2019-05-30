@@ -166,7 +166,21 @@ namespace SelCourse.Controllers
             courseTypes.AddRange(select.Course.Select(r => new GeneralSelectItem() { Text = r.CourseName, Value = r.CourseName }).Distinct());
             return courseTypes;
         }
-
+        /// <summary>
+        /// 选课页面
+        /// 1.获取当前的选课名称，处理下拉列表的信息，获取所有的课程名称
+        ///   1.1 查询所有的课程信息，从课程信息里面获取所有的课程名称
+        ///   1.2 组成一个list 放入 ViewBag 里面
+        /// 2.获取所有的课程信息 
+        ///   2.1 查询所有的课程信息从course 表里面，
+        ///   2.2 查询所有的选课信息从 selcourse 表里面
+        ///   2.3 统计每个课程选课的人数
+        /// 3.获取当前学生的姓名
+        ///   3.1 从cokie 里面获取到学生的id 
+        ///   3.2 根据学生id查询学生数据，获取学生的姓名
+        /// 4.返回视图到前台，然后将ViewBag 里面的数据渲染到cshtml 里面
+        /// </summary>
+        /// <returns></returns>
         public ActionResult SelectCourse()
         {
             string courseName = Request.QueryString["courseName"];
@@ -201,14 +215,21 @@ namespace SelCourse.Controllers
             return View("/Views/Select.cshtml");
         }
 
-        
 
+        /// <summary>
+        /// 1.获取当前选择的所有课程Id，以及当前学生的编号
+        /// 2.根据选择的课程id,生成选课信息。 stuid,courseid  出入后台多少个课程id,就有多少个选课信息
+        /// 3.向选课信息表里面添加选课信息。
+        ///   3.1 选择数据库中已经有的选课信息
+        ///   3.2 校验当前生成的选课信息是否已经存在，存在的话不处理。
+        ///   3.3 如果不存在的话，向数据库中插入一条选课信息  stuid ,courseid
+        /// 4.执行完之后，返回对应的选课信息返回到前台，进行处理
+        /// </summary>
+        /// <returns></returns>
         public ActionResult SelectCourseSave()
         {
             SelectionEntities select = new SelectionEntities();
             string cids = Request.QueryString["cids"];
-            ViewBag.Courses = select.Course.ToList();
-            ViewBag.CourseNames = GetAllCourseNames();
             HttpCookie cokie = Request.Cookies.Get("Login");
             JsonResult json = new JsonResult();
             json.JsonRequestBehavior = JsonRequestBehavior.AllowGet;

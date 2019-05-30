@@ -39,7 +39,7 @@ namespace SelCourse.Test
         }
 
         [TestMethod]
-        public void ActionMethod2()
+        public void FunMethod2()
         {
             Func<int, int, int> math = Add;
             int result = math(3,4);
@@ -72,7 +72,7 @@ namespace SelCourse.Test
         }
 
         [TestMethod]
-        public void ActionMethod6()
+        public void FunMethod6()
         {
             Func<int, int,int> math = (int p1, int p2) => {
                 return p1 + p2;

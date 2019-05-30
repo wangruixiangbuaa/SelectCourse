@@ -35,7 +35,16 @@ namespace SelCourse.Controllers
             json.Data = model;
             return json;
         }
-
+        /// <summary>
+        /// 匿名登录，过滤器不会对 action  或者controller  进行 直接跳过
+        /// 1.获取用户名和密码
+        /// 2.查询数据库中有没有和用户名和密码匹配的用户
+        /// 3.校验查询的数据
+        ///   3.1 如果查到用户，则校验成功，跳转成功页面，
+        ///   3.2 如果没有找到用户，则校验失败，重新返回到登录页面
+        /// 4.校验的数据封装成JSON 返回到前端，前端获取数据，进行提示
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         public  ActionResult DoLogin()
         {
