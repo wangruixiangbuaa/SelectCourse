@@ -15,6 +15,7 @@ namespace SelCourse.Data
     ///  5.[Column("UnitPrice", TypeName = "MONEY")]
     ///  6.[ForeignKey("CatID")]
     ///  7. https://www.cnblogs.com/libingql/p/3353112.html  
+    ///  8. https://www.cnblogs.com/Inspire-Yi/p/6230567.html DBContext
     ///    多个表之间的关系，配置，（用户，角色） 配置
     /// codeFirst,modelFirst
     /// </summary>

@@ -9,12 +9,14 @@
         var checks = $('input[type=checkbox]')
         console.log($('input[type=chekbox]'))
         var id = '';
+        //获取当前选中的checkbox,拼接传入后台的id,放入url里面
         for (var i = 0; i < checks.length; i++) {
             if (checks[i].checked)
             {
                 id += checks[i].getAttribute("cid") + ","
             }
         }
+        //当前选课的url
         var url = "/Course/SelectCourseSave?cids=" + id;
         console.log(name);
         $.ajax({

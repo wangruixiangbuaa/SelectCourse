@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HP.Web.MVC.Library", "HP.Web.MVC.Library\HP.Web.MVC.Library.csproj", "{D96843A0-216A-451E-B41A-555C827F35F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelCourse.Data", "SelCourse.Data\SelCourse.Data.csproj", "{D58F0BCE-2500-4D5E-9E78-1409A06E07E9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelCourse.EF.CodeFirst", "SelCourse.Data\SelCourse.EF.CodeFirst.csproj", "{D58F0BCE-2500-4D5E-9E78-1409A06E07E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelCourse.Test", "SelCourse.Test\SelCourse.Test.csproj", "{36F19405-822F-4F45-A287-A711938A1E70}"
 EndProject

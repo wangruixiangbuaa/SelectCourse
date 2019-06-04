@@ -29,5 +29,8 @@ namespace SelCourse.Data
         public DbSet<Person> Persons { get; set; }
 
         public DbSet<Student> Students { get; set; }
+
+
+        public DbSet<ClassRoom> Classes { get; set; }
     }
 }

@@ -15,12 +15,12 @@ namespace SelCourse.Data
 
         public string Number { get; set; }
 
-        public int ClassId { get; set; }
-
         public int SchoolId { get; set; }
 
         public int GradeId { get; set; }
 
         public string Hobby { get; set; }
+
+        public virtual ClassRoom classRoom{ get;set;}
     }
 }

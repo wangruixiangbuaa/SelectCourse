@@ -65,9 +65,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SelCourse.Data\SelCourse.Data.csproj">
+    <ProjectReference Include="..\SelCourse.Data\SelCourse.EF.CodeFirst.csproj">
       <Project>{d58f0bce-2500-4d5e-9e78-1409a06e07e9}</Project>
-      <Name>SelCourse.Data</Name>
+      <Name>SelCourse.EF.CodeFirst</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

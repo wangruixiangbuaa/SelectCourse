@@ -5,6 +5,11 @@ using System.Web;
 
 namespace SelCourse
 {
+    /// <summary>
+    /// 定义一个泛型，这个泛型可以是class 类型
+    /// 1.定义分页大小，分页索引，总共有多少页，当前页，要返回的分页数据
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class WrapPageData<T>  where T:class
     {
         public int pageIndex { get; set; }
